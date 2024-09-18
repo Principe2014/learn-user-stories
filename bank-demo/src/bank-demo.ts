@@ -50,18 +50,50 @@ export default class Bank {
      * @param accountNumber -- account to be deposited in
      * @param deposit -- amount to deposit in account
      * @returns bool -- returns true if successful deposit, else returns corresponding error
+     */
 
      public deposit(accountNumber: string, deposit: number) {
          if (deposit < 0) {
              throw new Error("Cannot deposit negative funds!");
-             )
+         }
 
          const account = this.findaccount(accountNumber); 
              if (!account) {
                  throw new Error("Account not found!");
-             
-            
-     
-
+             }
+             else {
+                 account.balance += deposit;
+                 return true;
+             }
+         }
     
+    /**
+     * Withdraw funds from an already existing account
+     * @param accountNumber -- account to be withdrawn from
+     * @param withdraw -- amount to withdraw
+     * @returns bool -- returns true if successful withdrawal, else returns corresponding error
+     */
+
+     public withdraw(accountNumber: string, withdrawal: number) {
+         if (withdrawal < 0) {
+             throw new Error("Cannot withdraw negative funds!");
+         }
+
+         const account = this.findaccount(accountNumber); 
+             if (!account) {
+                 throw new Error("Account not found!");
+             }
+             else if (account.balance < withdrawal) {
+                 throw new Error("Insufficient baance in account!");
+             }
+
+             else {
+                 account.balance -= withdrawal;
+                 return true;
+             }
+         }    
+
+    /** 
+     * Check the balance of funds in an existing account
+     * @param 
 }
