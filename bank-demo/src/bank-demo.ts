@@ -24,7 +24,7 @@ export default class Bank {
     }
 
     /**
-     * 
+     * Method to create a unique bank account
      * @param name -- name of the customer
      * @param age -- age of the customer
      * @param accountNumber -- account number of the customer
@@ -44,6 +44,24 @@ export default class Bank {
         this.accounts.push(account);
         return account;
     }
+
+    /**
+     * Deposit funds into an already existing account
+     * @param accountNumber -- account to be deposited in
+     * @param deposit -- amount to deposit in account
+     * @returns bool -- returns true if successful deposit, else returns corresponding error
+
+     public deposit(accountNumber: string, deposit: number) {
+         if (deposit < 0) {
+             throw new Error("Cannot deposit negative funds!");
+             )
+
+         const account = this.findaccount(accountNumber); 
+             if (!account) {
+                 throw new Error("Account not found!");
+             
+            
+     
 
     
 }
