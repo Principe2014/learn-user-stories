@@ -57,7 +57,7 @@ export default class Bank {
              throw new Error("Cannot deposit negative funds!");
          }
 
-         const account = this.findaccount(accountNumber); 
+         const account = this.findAccount(accountNumber); 
              if (!account) {
                  throw new Error("Account not found!");
              }
@@ -79,7 +79,7 @@ export default class Bank {
              throw new Error("Cannot withdraw negative funds!");
          }
 
-         const account = this.findaccount(accountNumber); 
+         const account = this.findAccount(accountNumber); 
              if (!account) {
                  throw new Error("Account not found!");
              }
@@ -95,5 +95,18 @@ export default class Bank {
 
     /** 
      * Check the balance of funds in an existing account
-     * @param 
+     * @param accountNumber -- account to check balance of 
+     * @return balance -- balance of account. Returns error if account not found
+     */
+
+    public checkBalance(accountNumber: string) {
+        const account = this.findAccount(accountNumber);
+        if (!account) {
+            throw new Error("Account not found!");
+        }
+
+        else {
+            return account.balance;
+        }
+    }
 }
